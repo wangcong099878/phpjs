@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+</head>
+<body>
+使用方法
+<br>
+<a href="javascript:void(0)" onclick="to('login')">直接跳转</a> <br />
+<a href="javascript:toPage('login');">简单跳转</a> <br />
+<a href="javascript:toPage({pageName:'login',urlParam:{name:1,id:1}});">带参跳转</a> <br />
+<a href="javascript:void(0)" onclick="toPage({pageName:'login',urlParam:{name:2}})">onclick跳转</a> <br />
+<br />
+<span onclick="toMain()">直接到首页</span>
+
+<a href="javascript:toPage({prefixPath:'/wx/',pageName:'login',urlParam:{name:1,id:1}});">带参跳转到其他的模块</a> <br />
+<a href="javascript:toPage({prefixPath:'wx/auth',pageName:'login',suffix:'asp',urlParam:{name:1,id:1}});">带参跳转到其他的模块并更改后缀</a> <br />
+
+<a href="javascript:toPage({domain:'http://www.baidu.com?nginx=1'});">跳转到外链</a> <br />
+<script src="simpleURL.js"></script>
+<script>
+
+    function toMain(){
+        toPage('index');
+    }
+    //直接跳转
+//    toPage({
+//        pageName:"login"
+//    });
+
+    //直接跳转带参数
+//    toPage({
+//        pageName:"login",
+//        urlParam:{name:1},
+//    });
+
+
+    //生成链接
+    var url = toPage({
+        pageName:"login",
+        urlParam:{name:1},
+        isCreate:true
+    });
+
+    console.log(url);
+
+    //js无传参直接跳页
+    //toPage('login');
+</script>
+</body>
+</html>
